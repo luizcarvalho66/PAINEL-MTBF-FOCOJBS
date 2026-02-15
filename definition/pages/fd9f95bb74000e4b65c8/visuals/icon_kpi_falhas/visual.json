@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "icon_kpi_falhas",
   "position": {
-    "x": 332.60098272163145,
+    "x": 349.60898751989669,
     "y": 117.16625527693834,
-    "z": 8000,
+    "z": 12000,
     "height": 22.677339731020325,
     "width": 22.677339731020325,
     "tabOrder": 2000

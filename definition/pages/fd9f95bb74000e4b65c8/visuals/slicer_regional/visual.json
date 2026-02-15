@@ -1,43 +1,84 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "mtbf_kpi_veiculos",
+  "name": "slicer_regional",
   "position": {
-    "x": 24.567118041938684,
-    "y": 111.49692034418327,
-    "z": 7000,
-    "height": 120.94581189877506,
-    "width": 279.68719001591734,
-    "tabOrder": 8000
+    "x": 319.37253454520294,
+    "y": 15.118226487346883,
+    "z": 5000,
+    "height": 73.701354125816053,
+    "width": 200.31650095734619,
+    "tabOrder": 12000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Medidas"
+                      "Entity": "f_MTBF"
                     }
                   },
-                  "Property": "Total Veiculos"
+                  "Property": "Info_Adicional_3"
                 }
               },
-              "queryRef": "_Medidas.Total Veiculos",
-              "nativeQueryRef": "Total Veiculos"
+              "queryRef": "f_MTBF.Info_Adicional_3",
+              "nativeQueryRef": "Info_Adicional_3",
+              "active": true
             }
           ]
         }
       }
     },
     "objects": {
-      "labels": [
+      "data": [
         {
           "properties": {
-            "color": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -48,48 +89,34 @@
                 }
               }
             },
-            "fontSize": {
+            "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Trebuchet MS'"
+                  "Value": "9D"
                 }
               }
             }
           }
         }
       ],
-      "categoryLabels": [
+      "items": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
+            "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7A7A8E'"
+                      "Value": "'#2D2D3A'"
                     }
                   }
                 }
               }
             },
-            "fontSize": {
+            "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "9D"
                 }
               }
             }
@@ -111,7 +138,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Veículos'"
+                  "Value": "'Regional'"
                 }
               }
             },
@@ -129,7 +156,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -144,58 +171,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Total de placas ativas'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#7A7A8E'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Trebuchet MS'"
                 }
               }
             },
@@ -255,7 +230,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F0F0F0'"
+                      "Value": "'#E0E0E0'"
                     }
                   }
                 }
@@ -264,7 +239,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             },
@@ -316,14 +291,14 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
+                  "Value": "60D"
                 }
               }
             },
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
@@ -337,7 +312,7 @@
             "shadowDistance": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "2D"
                 }
               }
             },
@@ -357,28 +332,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "0D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "0D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "36D"
+                  "Value": "4D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "4D"
                 }
               }
             }

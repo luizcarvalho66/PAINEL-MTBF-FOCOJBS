@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "icon_kpi_rodagem",
   "position": {
-    "x": 627.40639922489572,
+    "x": 648.19396064499767,
     "y": 117.16625527693834,
-    "z": 9000,
+    "z": 13000,
     "height": 22.677339731020325,
     "width": 24.567118041938684,
     "tabOrder": 4000

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "icon_kpi_veiculos",
   "position": {
-    "x": 34.016009596530488,
+    "x": 58.583127638469172,
     "y": 117.16625527693834,
-    "z": 7000,
-    "height": 22.677339731020325,
-    "width": 24.567118041938684,
+    "z": 11000,
+    "height": 35.905787907448847,
+    "width": 34.016009596530488,
     "tabOrder": 5000
   },
   "visual": {
