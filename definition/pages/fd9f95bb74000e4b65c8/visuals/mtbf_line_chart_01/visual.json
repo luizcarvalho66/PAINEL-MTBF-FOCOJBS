@@ -4,7 +4,7 @@
   "position": {
     "x": 24.567118041938684,
     "y": 251.34051535214195,
-    "z": 2000,
+    "z": 3000,
     "height": 445.98768137673306,
     "width": 648.19396064499767,
     "tabOrder": 6000
@@ -612,34 +612,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "b9e94861adfc0ff524ba",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "f_MTBF"
-              }
-            },
-            "Property": "MesRef"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "77be066256d665ffd97e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "MTBF (KM)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
