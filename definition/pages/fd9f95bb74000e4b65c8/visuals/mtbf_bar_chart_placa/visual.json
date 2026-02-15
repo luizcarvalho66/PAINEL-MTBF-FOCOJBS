@@ -49,6 +49,52 @@
               "nativeQueryRef": "MTBF (KM)"
             }
           ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Distancia Total KM"
+                }
+              },
+              "queryRef": "_Medidas.Distancia Total KM",
+              "nativeQueryRef": "Distancia Total KM"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Qtd Falhas"
+                }
+              },
+              "queryRef": "_Medidas.Qtd Falhas",
+              "nativeQueryRef": "Qtd Falhas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "f_MTBF"
+                    }
+                  },
+                  "Property": "Info_Adicional_3"
+                }
+              },
+              "queryRef": "f_MTBF.Info_Adicional_3",
+              "nativeQueryRef": "Info_Adicional_3"
+            }
+          ]
         }
       },
       "sortDefinition": {
