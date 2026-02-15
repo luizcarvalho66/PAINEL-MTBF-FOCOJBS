@@ -4,10 +4,10 @@
   "position": {
     "x": 319.37253454520294,
     "y": 111.49692034418327,
-    "z": 4000,
+    "z": 8000,
     "height": 120.94581189877506,
     "width": 296.69519481418257,
-    "tabOrder": 8000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "card",
@@ -150,7 +150,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'left'"
+                  "Value": "'center'"
                 }
               }
             }
@@ -196,6 +196,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Trebuchet MS'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

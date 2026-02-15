@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "icon_kpi_global",
   "position": {
-    "x": 912.76292417356808,
+    "x": 948.66871208101691,
     "y": 117.16625527693834,
-    "z": 10000,
+    "z": 14000,
     "height": 22.677339731020325,
     "width": 22.677339731020325,
     "tabOrder": 3000
