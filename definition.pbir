@@ -3,7 +3,7 @@
   "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../MTBF-PLACA-CARLOS.SemanticModel"
+      "path": "./MTBF-PLACA-CARLOS.SemanticModel"
     }
   }
 }
