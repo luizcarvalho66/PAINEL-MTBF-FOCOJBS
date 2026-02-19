@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "km_acumulado_line_chart",
   "position": {
@@ -56,117 +56,478 @@
       "legend": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "false" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ],
       "categoryAxis": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "labelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7A7A8E'" } } } } },
-            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
-            "showAxisTitle": { "expr": { "Literal": { "Value": "false" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7A7A8E'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ],
       "valueAxis": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "labelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7A7A8E'" } } } } },
-            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
-            "showAxisTitle": { "expr": { "Literal": { "Value": "true" } } },
-            "axisTitle": { "expr": { "Literal": { "Value": "'Total KM Frota'" } } },
-            "gridlineShow": { "expr": { "Literal": { "Value": "true" } } },
-            "gridlineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E8E8EE'" } } } } },
-            "titleColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7A7A8E'" } } } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7A7A8E'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E8E8EE'"
+                    }
+                  }
+                }
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7A7A8E'"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       ],
       "lineStyles": [
         {
           "properties": {
-            "strokeWidth": { "expr": { "Literal": { "Value": "3D" } } },
-            "showMarker": { "expr": { "Literal": { "Value": "true" } } }
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ],
       "dataPoint": [
         {
           "properties": {
-            "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#ED1C24'" } } } } }
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ED1C24'"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       ],
       "labels": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#2D2D3A'" } } } } },
-            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
-            "labelDisplayUnits": { "expr": { "Literal": { "Value": "1000D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2D2D3A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            }
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "title": [{
-        "properties": {
-          "show": { "expr": { "Literal": { "Value": "true" } } },
-          "text": { "expr": { "Literal": { "Value": "'KM Acumulado da Frota · Evolução Mensal'" } } },
-          "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1A1A2E'" } } } } },
-          "fontSize": { "expr": { "Literal": { "Value": "14D" } } },
-          "fontFamily": { "expr": { "Literal": { "Value": "'Segoe UI Semibold'" } } },
-          "bold": { "expr": { "Literal": { "Value": "true" } } },
-          "alignment": { "expr": { "Literal": { "Value": "'left'" } } }
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KM Acumulado da Frota ┬À Evolu├º├úo Mensal'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1A1A2E'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
         }
-      }],
-      "subTitle": [{
-        "properties": {
-          "show": { "expr": { "Literal": { "Value": "true" } } },
-          "text": { "expr": { "Literal": { "Value": "'Distância total percorrida pela frota JBS · Últimos 12 meses'" } } },
-          "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7A7A8E'" } } } } },
-          "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
-          "fontFamily": { "expr": { "Literal": { "Value": "'Segoe UI'" } } }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dist├óncia total percorrida pela frota JBS ┬À ├Ültimos 12 meses'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7A7A8E'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
         }
-      }],
-      "background": [{
-        "properties": {
-          "show": { "expr": { "Literal": { "Value": "true" } } },
-          "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
-          "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
         }
-      }],
-      "border": [{
-        "properties": {
-          "show": { "expr": { "Literal": { "Value": "true" } } },
-          "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F0F0F0'" } } } } },
-          "radius": { "expr": { "Literal": { "Value": "16D" } } },
-          "width": { "expr": { "Literal": { "Value": "1D" } } }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F0F0F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
         }
-      }],
-      "dropShadow": [{
-        "properties": {
-          "show": { "expr": { "Literal": { "Value": "true" } } },
-          "preset": { "expr": { "Literal": { "Value": "'Custom'" } } },
-          "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
-          "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#B3B3B3'" } } } } },
-          "transparency": { "expr": { "Literal": { "Value": "50D" } } },
-          "shadowBlur": { "expr": { "Literal": { "Value": "12D" } } },
-          "shadowSpread": { "expr": { "Literal": { "Value": "0D" } } },
-          "shadowDistance": { "expr": { "Literal": { "Value": "4D" } } },
-          "angle": { "expr": { "Literal": { "Value": "90D" } } }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Custom'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Outer'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B3B3B3'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            }
+          }
         }
-      }],
-      "padding": [{
-        "properties": {
-          "top": { "expr": { "Literal": { "Value": "8D" } } },
-          "bottom": { "expr": { "Literal": { "Value": "8D" } } },
-          "left": { "expr": { "Literal": { "Value": "12D" } } },
-          "right": { "expr": { "Literal": { "Value": "12D" } } }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
         }
-      }]
+      ]
     },
     "drillFilterOtherVisuals": true
   }
