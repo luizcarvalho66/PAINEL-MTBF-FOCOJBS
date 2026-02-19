@@ -34,3 +34,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 *.pyo
+
+# Arquivos PBIX compilados (usar definition.pbir como projeto ativo)
+*.pbix
