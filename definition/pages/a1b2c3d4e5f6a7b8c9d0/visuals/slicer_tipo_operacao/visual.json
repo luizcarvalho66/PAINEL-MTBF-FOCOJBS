@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "slicer_tipo_operacao",
   "position": {
-    "x": 425,
-    "y": 15,
+    "x": 396.85344529285567,
+    "y": 15.118226487346883,
     "z": 6000,
-    "height": 74,
-    "width": 215,
+    "height": 73.701354125816053,
+    "width": 170.08004798265245,
     "tabOrder": 13000
   },
   "visual": {
@@ -163,7 +163,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Trebuchet MS'"
+                  "Value": "'Calibri'"
                 }
               }
             },

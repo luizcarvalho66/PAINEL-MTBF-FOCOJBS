@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "slicer_periodo",
   "position": {
-    "x": 875,
-    "y": 15,
+    "x": 721.89531477081368,
+    "y": 15.118226487346883,
     "z": 4000,
-    "height": 74,
-    "width": 215,
+    "height": 73.701354125816053,
+    "width": 151.18226487346882,
     "tabOrder": 14000
   },
   "visual": {
@@ -163,7 +163,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Trebuchet MS'"
+                  "Value": "'Calibri'"
                 }
               }
             },

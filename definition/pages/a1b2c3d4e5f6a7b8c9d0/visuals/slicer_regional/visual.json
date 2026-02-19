@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "slicer_regional",
   "position": {
-    "x": 200,
-    "y": 15,
+    "x": 200.31650095734619,
+    "y": 15.118226487346883,
     "z": 5000,
-    "height": 74,
-    "width": 215,
+    "height": 73.701354125816053,
+    "width": 181.4187178481626,
     "tabOrder": 12000
   },
   "visual": {
@@ -163,7 +163,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Trebuchet MS'"
+                  "Value": "'Calibri'"
                 }
               }
             },
