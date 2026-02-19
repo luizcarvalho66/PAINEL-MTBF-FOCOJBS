@@ -239,7 +239,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quebras por Sistema ┬À Composi├º├úo Mensal'"
+                  "Value": "'Quebras por Sistema – Composição Mensal'"
                 }
               }
             },
@@ -298,7 +298,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Quebras empilhadas por Grupo de Pe├ºas'"
+                  "Value": "'Total Quebras empilhadas por Grupo de Peças'"
                 }
               }
             },
