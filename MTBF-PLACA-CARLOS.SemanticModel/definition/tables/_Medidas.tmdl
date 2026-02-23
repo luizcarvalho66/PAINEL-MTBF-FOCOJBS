@@ -1,38 +1,28 @@
 table _Medidas
 	lineageTag: measures-table-001
 
-	/// Distância total percorrida pela frota (f_KM_Rodados).
-	/// Filtra f_KM_Rodados usando Mes/Ano diretamente (sem relação d_Calendario).
-	/// Quando eixo = f_MTBF.MesRef → filtra por mês/ano extraído do contexto.
-	/// Quando eixo = f_MTBF.Placa → TREATAS propaga filtro de placa.
-	/// KPI cards (sem eixo) → retorna total de KM.
+	/// SEMPRE usa TREATAS para propagar filtro de Placa de f_MTBF → f_KM_Rodados.
+	/// Isso garante que filtros indiretos (Regional, Operação, etc.) em f_MTBF
+	/// restrinjam corretamente quais placas contribuem para o KM.
+	/// Quando eixo = f_MTBF.MesRef → filtra também por mês/ano.
+	/// Corrigido 2026-02-23: antes não filtrava por Regional (spike no chart).
 	measure 'Distancia Total KM' =
 			VAR _mesRefCount = COUNTROWS(VALUES('f_MTBF'[MesRef]))
 			VAR _mes = MONTH(MIN('f_MTBF'[MesRef]))
 			VAR _ano = YEAR(MIN('f_MTBF'[MesRef]))
-			VAR _placaFiltered = ISFILTERED('f_MTBF'[Placa])
 			RETURN
-			SWITCH(
-			    TRUE(),
-			    _mesRefCount = 1 && _placaFiltered,
-			        CALCULATE(
-			            SUM('f_KM_Rodados'[KM Rodados]),
-			            'f_KM_Rodados'[Mes] = _mes,
-			            'f_KM_Rodados'[Ano] = _ano,
-			            TREATAS(VALUES('f_MTBF'[Placa]), 'f_KM_Rodados'[Placa])
-			        ),
+			IF(
 			    _mesRefCount = 1,
-			        CALCULATE(
-			            SUM('f_KM_Rodados'[KM Rodados]),
-			            'f_KM_Rodados'[Mes] = _mes,
-			            'f_KM_Rodados'[Ano] = _ano
-			        ),
-			    _placaFiltered,
-			        CALCULATE(
-			            SUM('f_KM_Rodados'[KM Rodados]),
-			            TREATAS(VALUES('f_MTBF'[Placa]), 'f_KM_Rodados'[Placa])
-			        ),
-			    SUM('f_KM_Rodados'[KM Rodados])
+			    CALCULATE(
+			        SUM('f_KM_Rodados'[KM Rodados]),
+			        'f_KM_Rodados'[Mes] = _mes,
+			        'f_KM_Rodados'[Ano] = _ano,
+			        TREATAS(VALUES('f_MTBF'[Placa]), 'f_KM_Rodados'[Placa])
+			    ),
+			    CALCULATE(
+			        SUM('f_KM_Rodados'[KM Rodados]),
+			        TREATAS(VALUES('f_MTBF'[Placa]), 'f_KM_Rodados'[Placa])
+			    )
 			)
 		formatString: #,##0 "KM"
 		displayFolder: KPIs MTBF
