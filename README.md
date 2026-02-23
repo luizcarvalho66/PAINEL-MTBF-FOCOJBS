@@ -68,6 +68,30 @@ flowchart TB
 | `fact_maintenanceservices` | `hive_metastore.gold` | Ordens de serviço de manutenção | `Sk_MaintenanceServices` (PK) |
 | `fact_maintenanceitems`    | `hive_metastore.gold` | Itens/peças de cada OS          | `Sk_MaintenanceServices` (FK) |
 
+# <<<<<<< Updated upstream
+
+### Tabela KM Rodados (Origem Excel — provisório)
+
+| Tabela         | Origem                       | Descrição                                | Volume       |
+| -------------- | ---------------------------- | ---------------------------------------- | ------------ |
+| `f_KM_Rodados` | `4 - KM Rodado_Geral 1.xlsx` | Transações de abastecimento (GEF) com KM | ~232K linhas |
+
+> **⚠️ Fonte provisória**: A tabela `f_KM_Rodados` é carregada de um **arquivo Excel local** (não do Databricks). A tabela equivalente no Databricks seria `fact_transactionfuel` (colunas `KilometersDriven`, `Mileage`, `PreviousMileage`), porém o pipeline ETL atual não carrega transações JBS nesta tabela. O Excel é mantido provisoriamente até que a equipe de engenharia de dados corrija o pipeline.
+>
+> **Impacto**: Como `f_KM_Rodados` **não possui coluna de Regional**, o filtro de regional é propagado indiretamente via `TREATAS(VALUES(f_MTBF[Placa]), f_KM_Rodados[Placa])` — ou seja, a medida `Distância Total KM` filtra KM pelas placas que pertencem à regional selecionada.
+
+#### Colunas `f_KM_Rodados`
+
+| Coluna            | Tipo    | Descrição                       |
+| ----------------- | ------- | ------------------------------- |
+| `Placa`           | Texto   | Placa do veículo                |
+| `KM Rodados`      | Inteiro | KM rodados entre abastecimentos |
+| `Familia Veiculo` | Texto   | Família do veículo              |
+| `Mes`             | Inteiro | Mês da transação                |
+| `Ano`             | Inteiro | Ano da transação                |
+| `Data`            | Data    | Data da transação               |
+| `Nome Reduzido`   | Texto   | Nome reduzido do cliente        |
+
 ### Tabelas Dimensão (Origem Databricks)
 
 | Tabela                                   | Schema                | Descrição                                     | Chave SK                    |
@@ -153,12 +177,22 @@ flowchart TD
     end
 
     subgraph MEDIDAS["📊 Medidas"]
+<<<<<<< Updated upstream
         DIST["Distância Total KM\nSUMX por Placa\nMax(KM) - Min(KM)"]
+=======
+        DIST["Distância Total KM\nSUM f_KM_Rodados via TREATAS"]
+>>>>>>> Stashed changes
         FALHAS["Qtd Falhas\nCOUNTROWS distintos\nPlaca + Data_Inicio"]
-        MTBF["MTBF (KM)\nDIVIDE(Distância, Falhas)"]
-        VEIC["Total Veículos\nDISTINCTCOUNT(Placa)"]
+        MTBF["MTBF KM\nDIVIDE Distância Falhas"]
+        VEIC["Total Veículos\nDISTINCTCOUNT Placa"]
     end
 
+<<<<<<< Updated upstream
+=======
+    FKML --> DIST
+    FMTBF -->|"TREATAS Placa"| DIST
+    FMTBF --> FALHAS
+>>>>>>> Stashed changes
     FC --> FALHAS
     FS2 --> FALHAS
     FG --> FALHAS
@@ -172,14 +206,33 @@ flowchart TD
 
 ### Detalhamento das Medidas
 
-| Medida                 | Fórmula                                                 | Formato    | Descrição                                       |
+<<<<<<< Updated upstream
+| Medida | Fórmula | Formato | Descrição |
 | ---------------------- | ------------------------------------------------------- | ---------- | ----------------------------------------------- |
-| **Distância Total KM** | `SUMX(VALUES(Placa), MAX(KM) - MIN(KM))`                | `#,##0 KM` | Variação de odômetro por placa, filtro outliers |
-| **Qtd Falhas**         | `COUNTROWS(SUMMARIZE(FILTER(...), Placa, Data_Inicio))` | `#,##0`    | Eventos distintos de parada (Placa + Data)      |
-| **MTBF (KM)**          | `DIVIDE(Distância Total, Qtd Falhas)`                   | `#,##0 KM` | Quilometragem média entre falhas                |
-| **Total Quebras**      | `[Qtd Falhas]`                                          | `#,##0`    | Alias para visualizações de quebras             |
-| **Rodagem Mensal KM**  | `[Distância Total KM]`                                  | `#,##0 KM` | Alias para gráficos de rodagem                  |
-| **Total Veículos**     | `DISTINCTCOUNT(Placa)`                                  | `#,##0`    | Contagem de placas distintas no contexto        |
+| **Distância Total KM** | `SUMX(VALUES(Placa), MAX(KM) - MIN(KM))` | `#,##0 KM` | Variação de odômetro por placa, filtro outliers |
+| **Qtd Falhas** | `COUNTROWS(SUMMARIZE(FILTER(...), Placa, Data_Inicio))` | `#,##0` | Eventos distintos de parada (Placa + Data) |
+| **MTBF (KM)** | `DIVIDE(Distância Total, Qtd Falhas)` | `#,##0 KM` | Quilometragem média entre falhas |
+| **Total Quebras** | `[Qtd Falhas]` | `#,##0` | Alias para visualizações de quebras |
+| **Rodagem Mensal KM** | `[Distância Total KM]` | `#,##0 KM` | Alias para gráficos de rodagem |
+| **Total Veículos** | `DISTINCTCOUNT(Placa)` | `#,##0` | Contagem de placas distintas no contexto |
+=======
+| Medida | Fórmula | Fonte | Descrição |
+| ---------------------- | ----------------------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| **Distância Total KM** | `CALCULATE(SUM(f_KM_Rodados[KM Rodados]), TREATAS(VALUES(f_MTBF[Placa])...))` | `f_KM_Rodados` | KM rodados, filtrado por contexto via Placa |
+| **Qtd Falhas** | `COUNTROWS(SUMMARIZE(FILTER(...), Placa, Data_Inicio))` | `f_MTBF` | Eventos distintos de parada (Placa + Data) |
+| **MTBF (KM)** | `DIVIDE(Distância Total, Qtd Falhas)` | Ambas | Quilometragem média entre falhas |
+| **Total Quebras** | `[Qtd Falhas]` | `f_MTBF` | Alias para visualizações de quebras |
+| **Rodagem Mensal KM** | `[Distância Total KM]` | `f_KM_Rodados` | Alias para gráficos de rodagem |
+| **Total Veículos** | `DISTINCTCOUNT(Placa)` | `f_MTBF` | Contagem de placas distintas |
+
+> **Correção 2026-02-22**: A medida `Distância Total KM` foi alterada de `SUMX(VALUES(Placa), MAX(KM) - MIN(KM))` (odômetro de manutenção, impreciso) para `SUM(f_KM_Rodados[KM Rodados])` (KM reais de abastecimento GEF). Validado contra Excel de referência: ~12-14M KM/mês, 2.124 placas.
+>
+> > > > > > > Stashed changes
+
+> **Correção 2026-02-23**: Duas correções aplicadas:
+>
+> 1. A medida `Distância Total KM` agora **sempre** usa `TREATAS(VALUES(f_MTBF[Placa]), f_KM_Rodados[Placa])` para propagar filtros indiretos (Regional, Operação, etc.) de `f_MTBF` para `f_KM_Rodados`. Antes, o KM total da frota inteira era usado como numerador quando o chart quebrava por Regional, inflacionando o MTBF.
+> 2. O filtro temporal de `f_MTBF` foi alterado de `Date.AddYears(DateTime.LocalNow(), -1)` para `Date.StartOfMonth(Date.AddMonths(DateTime.LocalNow(), -11))`, garantindo que apenas **meses completos** apareçam no gráfico (sem spike no primeiro mês parcial).
 
 ---
 
@@ -212,7 +265,7 @@ flowchart LR
 | 3   | **Exclusão de grupos** | Funilaria e Acessórios são excluídos do cálculo de falhas                |
 | 4   | **Contagem distinta**  | Uma falha = 1 evento (Placa + Data), independente da quantidade de peças |
 | 5   | **Filtro KM**          | Outliers de odômetro removidos: KM < 100 ou KM > 900.000                 |
-| 6   | **Período**            | Últimos 12 meses a partir da data atual                                  |
+| 6   | **Período**            | Últimos 11 meses completos + mês atual (arredondado ao 1º dia do mês)    |
 | 7   | **Regionais JBS**      | Somente REGIONAL 1 a REGIONAL 8                                          |
 | 8   | **Limite de dados**    | Máximo 1.000.000 de linhas importadas                                    |
 
